@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - Loja de Materiais Escolares</title>
+
+    <!-- Bootstrap CSS e ícones -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
     <style>
-        /* Reset de estilos padrões */
         * {
             margin: 0;
             padding: 0;
@@ -15,11 +19,10 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f3f4f6;
-            color: #fadfdf;
+            color: #333;
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
         header {
             background-color: #141413;
             padding: 80px 20px;
@@ -40,7 +43,6 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
-        /* Imagem de fundo na parte principal (formulário) */
         .contact-form-section {
             background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fobservatorio3setor.org.br%2Fwp-content%2Fuploads%2F2023%2F01%2FAdobeStock_519371307-scaled-e1674155814147-1536x922.jpeg&f=1&nofb=1&ipt=96ddc12a01200af656a9ea185374ede1119919292930cadb89e0a9742f2ce9b2') no-repeat center center;
             background-size: cover;
@@ -52,16 +54,15 @@
         }
 
         .contact-form {
-            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com opacidade para contraste */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
-            box-sizing: border-box;
         }
 
-        .contact-form .form-group {
+        .form-group {
             margin-bottom: 20px;
         }
 
@@ -69,7 +70,6 @@
             font-size: 1rem;
             font-weight: bold;
             color: #003366;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .contact-form input,
@@ -81,7 +81,6 @@
             border: 2px solid #f0f0f0;
             border-radius: 6px;
             font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .contact-form input:focus,
@@ -89,7 +88,6 @@
         .contact-form textarea:focus {
             border-color: #ffca28;
             outline: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .contact-form textarea {
@@ -99,19 +97,17 @@
 
         .submit-btn {
             background-color: #24c963;
-            color: rgb(10, 10, 10);
+            color: #000;
             padding: 12px 20px;
             font-size: 1.1rem;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .submit-btn:hover {
             background-color: #f57c00;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            color: #fff;
         }
 
         @media (max-width: 768px) {
@@ -122,28 +118,61 @@
     </style>
 </head>
 <body>
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="nos.html">Sobre</a></li>
+
+    <!-- NAVBAR (copiada do index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Universo Escolar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nos.html">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contato.html">Contato</a>
+                    </li>
+                </ul>
+
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrinho
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
     <header>
         <div class="header-content">
             <h1>Entre em Contato</h1>
             <p>Tem alguma dúvida ou sugestão? Estamos aqui para ajudar!</p>
         </div>
     </header>
-    
+
+    <!-- FORMULÁRIO DE CONTATO -->
     <section class="contact-form-section">
-        <form class="contact-form">
+        <form class="contact-form" action="#" method="post">
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="assunto">Assunto:</label>
                 <select id="assunto" name="assunto" required>
@@ -152,14 +181,17 @@
                     <option value="reclamacao">Reclamação</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required></textarea>
             </div>
-            
+
             <button type="submit" class="submit-btn">Enviar</button>
         </form>
     </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
