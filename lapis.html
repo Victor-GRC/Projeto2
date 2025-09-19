@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Titulo - Universo Escolar Template</title>
+    <title>Universo Escolar Template</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -59,15 +59,14 @@
                 <div class="col-md-6">
                     <h2 class="display-5 fw-bolder">Caixa de Lápis de Grafite (12 unid.)</h2>
                     <div class="fs-5 mb-4">
-                       
                         <span class="ms-2">$12.50</span>
                     </div>
                     <p class="lead">
                         Caixa com 12 lápis de grafite, resistentes e macios, perfeitos para escrita e desenho no dia a dia.
                     </p>
                     <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                        <input class="form-control text-center me-3 product-quantity" data-product-id="3" type="number" value="1" style="max-width: 3rem" />
+                        <button class="btn btn-outline-dark flex-shrink-0 add-to-cart" data-product-id="3" type="button">
                             <i class="bi-cart-fill me-1"></i>
                             Add to cart
                         </button>
@@ -78,6 +77,28 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script>
+        // Função para adicionar ao carrinho
+        function addToCart(event) {
+            const button = event.target;  // O botão clicado
+            const productId = button.getAttribute('data-product-id'); // Obtém o ID do produto
+            const quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
+            const quantity = parseInt(quantityInput.value); // Obtém a quantidade do campo de input
+            const cartBadge = document.querySelector('.badge');
+
+            // Atualiza o contador do carrinho
+            const currentQuantity = parseInt(cartBadge.textContent);
+            cartBadge.textContent = currentQuantity + quantity;
+
+            // Alerta simples de item adicionado
+            alert(`Você adicionou ${quantity} item(s) ao carrinho!`);
+        }
+
+        // Adiciona o evento de clique em todos os botões "Adicionar ao carrinho"
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', addToCart);
+        });
+    </script>
 </body>
 </html>
